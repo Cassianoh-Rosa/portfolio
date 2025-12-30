@@ -33,6 +33,9 @@ header{
   display: flex;
   justify-content: end;
   align-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 nav#menu ul{
   list-style: none; 
@@ -68,7 +71,7 @@ section#ficha{
   grid-column: 2;
   
 }
-img.foto{
+section#ficha img.foto{
   width: 200px;
   aspect-ratio: 1/1; 
   /* define o formato da imagem, o 1/1 deixa quadrado */
@@ -200,9 +203,38 @@ article iframe{
 #projeto-container .projeto:hover{
   border-left-color:var(--destaque);
   border-width:15px ;
+  cursor: pointer;
+}
+#projeto-container .foto{
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+footer{
+  background-color: var(--destaque);
+  color: var(--texto-inverso);
+  text-align: center;
+  padding: 15px;
+}
+footer a{
+  text-decoration: none;
+  color: var(--texto-inverso);
+  font-weight:bold ;
+}
+footer a:hover{
+  color: var(--destaque-inverso);
 }
 @media screen and (min-width:768px){
   #skills-container{
     grid-template-columns: 1fr 1fr;
+  }
+  #projeto-container .projeto{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  #projeto-container .foto{
+    flex: 0 0 45%;
   }
 }
